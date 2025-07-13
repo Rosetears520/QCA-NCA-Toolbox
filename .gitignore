@@ -1,0 +1,16 @@
+# 虚拟环境文件夹
+.venv/
+venv/
+__pycache__/
+
+# IDE 配置文件 (PyCharm, VSCode, etc.)
+.idea/
+.vscode/
+
+# 打包生成的文件
+dist/
+build/
+*.spec
+
+# 系统文件
+.DS_Store
