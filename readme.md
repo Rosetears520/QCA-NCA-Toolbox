@@ -65,21 +65,19 @@ python main.py --host 0.0.0.0 --port 9999
 ## 打包为 Windows 单文件 EXE
 
 已在仓库发布页提供编译好的 `QCA_NCA_Toolbox.exe`，直接下载双击即可。
- 如需自行打包，可使用 **Nuitka**：
+ 如需自行打包，可使用 **pyinstaller**：
 
 ```bash
-python -m nuitka main.py \
-  --standalone --onefile --windows-console-mode=force \
-  --windows-icon-from-ico=qca_nca_logo.ico \
-  --include-package-data=gradio \
-  --include-package-data=gradio_client \
-  --include-package-data=safehttpx \
-  --include-package-data=groovy \
-  --output-dir=dist \
-  --output-filename=QCA_NCA_Toolbox.exe
+pyinstaller --clean --noconfirm --onedir --console --debug=noarchive `
+  --icon="D:\python_project\qca_nca_app\qca_nca_logo.ico" `
+  --add-data "D:\python_project\qca_nca_app\qca_nca_logo.ico;." `
+  --collect-all gradio --collect-all gradio_client `
+  --collect-all safehttpx --collect-all groovy `
+  --hidden-import numpy `
+  --distpath dist --name QCA_NCA_Toolbox main.py
 ```
 
-打包后双击 `dist/QCA_NCA_Toolbox.exe` 即可在本机或局域网使用（默认端口 713）。
+打包后双击 `dist/QCA_NCA_Toolbox/QCA_NCA_Toolbox.exe` 即可在本机或局域网使用（默认端口 713）。
 
 ------
 
