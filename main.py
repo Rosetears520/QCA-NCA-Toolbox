@@ -60,7 +60,7 @@ def parse_fs_text(raw_text: str) -> pd.DataFrame:
 # NCA 解析
 # --------------------------------------------------
 def parse_nca(raw: str) -> pd.DataFrame:
-    parts = re.split(r"NCA Parameters\s*:\s*([A-Z]\d?)\s*-\s*Y", raw)
+    parts = re.split(r"NCA Parameters\s*:\s*(.*?)\s*-\s*\S+", raw)
     rows, order = [], []
     for i in range(1, len(parts), 2):
         cond, block = parts[i], parts[i + 1]
