@@ -67,14 +67,16 @@ python main.py --host 0.0.0.0 --port 9999
 已在仓库发布页提供编译好的 `QCA_NCA_Toolbox.exe`，直接下载双击即可。
  如需自行打包，可使用 **pyinstaller**：
 
+### 环境要求
+- Python 3.12+
+- 已安装所有在 `requirements.txt` 中列出的依赖包。
+- 已安装 PyInstaller: `pip install pyinstaller`
+
+### 打包命令
+在项目根目录下，运行以下命令来生成应用程序：
+
 ```bash
-pyinstaller --clean --noconfirm --onedir --console --debug=noarchive `
-  --icon="D:\python_project\qca_nca_app\qca_nca_logo.ico" `
-  --add-data "D:\python_project\qca_nca_app\qca_nca_logo.ico;." `
-  --collect-all gradio --collect-all gradio_client `
-  --collect-all safehttpx --collect-all groovy `
-  --hidden-import numpy `
-  --distpath dist --name QCA_NCA_Toolbox main.py
+pyinstaller --clean --noconfirm --onedir --console --icon="D:\python_project\qca_nca_app\qca_nca_logo.ico" --add-data "D:\python_project\qca_nca_app\qca_nca_logo.ico;." --collect-all gradio --collect-all gradio_client --collect-all safehttpx --collect-all groovy --hidden-import numpy --distpath dist --name QCA_NCA_Toolbox1.1 main.py
 ```
 
 打包后双击 `dist/QCA_NCA_Toolbox/QCA_NCA_Toolbox.exe` 即可在本机或局域网使用（默认端口 713）。
